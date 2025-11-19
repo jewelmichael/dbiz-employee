@@ -1,10 +1,11 @@
 import Image from "next/image";
-import SigninForm from "@/app/Signin/page";
+import DashboardPage from "./dashboard/page";
+
 
 export default function Home() {
   return (
     <main>
-      <SigninForm />
+      <DashboardPage />
     </main>
   );
 }
