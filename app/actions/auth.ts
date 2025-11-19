@@ -31,16 +31,17 @@ export async function signup(state: FormState, formData: FormData) {
     throw new Error("User with this email already exists");
   }
 
-  const hashed = await bcrypt.hash(password, 10);
+  const hashed = await bcrypt.hash(password!, 10);
 
   await users.insertOne({
     name,
     email,
-    password: hashed,
+    password,
+    password_hashed: hashed,
     createdAt: new Date(),
   });
 
   // On success, go somewhere (home, login, dashboard, etc.)
-  redirect("/signup-success");
+  // redirect("/signup-success");
   // Call the provider or db to create a user...
 }
