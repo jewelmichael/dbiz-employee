@@ -217,3 +217,13 @@ export async function login(
     message: "Logged in successfully.",
   };
 }
+
+export async function logout() {
+  const cookieStore = await cookies();
+
+  // Remove the session cookie
+  cookieStore.delete("session");
+
+  // After logout, send user to signin page
+  redirect("/signin");
+}
