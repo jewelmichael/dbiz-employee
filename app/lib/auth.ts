@@ -1,7 +1,7 @@
 // app/lib/auth.ts
 import { SignJWT, jwtVerify } from "jose";
 
-const secretKey = process.env.SESSION_SECRET;
+const secretKey = process.env.JWT_SECRET;
 if (!secretKey) {
   throw new Error("JWT_SECRET is not set in environment variables");
 }
