@@ -19,7 +19,7 @@ export async function proxy(req: NextRequest) {
 
     try {
       await verifySessionToken(token);
-      return NextResponse.redirect(new URL("/Dashboard", req.url));
+      return NextResponse.redirect(new URL("/dashboard", req.url));
     } catch {
       const res = NextResponse.next();
       res.cookies.delete("session");
