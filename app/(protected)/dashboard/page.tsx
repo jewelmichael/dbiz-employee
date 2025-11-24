@@ -1,3 +1,5 @@
+// app/(protected)/dashboard/page.tsx
+
 import LogoutButton from "@/app/components/logout";
 
 export default function DashboardPage() {
