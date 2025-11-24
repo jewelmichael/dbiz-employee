@@ -66,7 +66,6 @@ export async function signup(
     name: validName,
     email: validEmail,
     password_hashed: hashed,
-    role: "employee",
     failedLoginAttempts: 0,
     lockUntil: null,
     createdAt: new Date(),

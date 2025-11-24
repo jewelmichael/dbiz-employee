@@ -7,6 +7,7 @@ import Toast from "@/app/components/toast";
 import Error from "@/app/components/error";
 import Link from "next/link";
 import type { FormState } from "@/app/lib/definitions";
+import { useRouter } from "next/navigation";
 
 const initialState: FormState = {
   errors: undefined,
@@ -19,14 +20,18 @@ export default function SignupForm() {
     initialState
   );
   const [showToast, setShowToast] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     if (state?.message === "Signup successful!") {
       setShowToast(true);
-      const t = setTimeout(() => setShowToast(false), 2500);
+      const t = setTimeout(() => {
+        setShowToast(false)
+        router.push("/signin");
+      }, 2500);
       return () => clearTimeout(t);
     }
-  }, [state?.message]);
+  }, [state?.message, router]);
 
   return (
     <>
